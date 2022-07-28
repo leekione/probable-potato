@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="create_element.js"></script>
+    <style>
+        * {outline: 1px solid black;}
+        ul {margin:0; padding: 0;}
+        ul,li {list-style: none;}
+        #container .wrap {
+            display: flex;
+            align-items: stretch;
+        }
+        #container .wrap .title {
+            align-self: center;
+            width: 80px;
+        }
+        #container .wrap .comment {
+            flex: 1;
+        }
+        #container .wrap .btn {
+            width: 60px;
+            margin-left: 5px;
+        }
+        /* #container .comment__list  */
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="wrap">
+            <label for="" class="title">댓글작성</label>
+            <textarea class="comment" name="" id="" cols="30" rows="3" placeholder="댓글입력(300자 미만)"></textarea>
+            <button class="btn btn__write">등록</button>
+            <!-- <button class="btn btn__remove">삭제</button> -->
+        </div>
+        <div class="comment_list">
+            <ul class="comments">
+                <!-- <li class="comment__item">댓글1</li>
+                <li class="comment__item">댓글2</li>
+                <li class="comment__item">댓글3</li> -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //댓글 입력
+        const button_h = e =>{
+            console.log('클릭')
+            const $comment = document.querySelector('.comment');
+            const comment = $comment.value.trim();
+            if(comment.length){
+                //1) li 요소 생성
+                const $li = makeElements('li',{class:'comment__item'},comment);
+                //2) ul 요소의 자식요소로 추가
+            document.querySelector('.comment_list > .comments').appendChild($li);
+            const $btn_r = makeElements('button',{class:'btn_remove'},'삭제');
+            $li.appendChild($btn_r);
+
+            //3) textarea.value 초기화
+            $comment.value = '';
+        }else{
+            alert('댓글 입력바랍니다.');
+            $comment.focus();
+        }
+        document.querySelector('.btn_remove').addEventListener('click', button_r);
+            };
+            // const $li = makeElements('li',{class:'comment__item'},$comment.value);
+            // document.querySelector('.comments').appendChild($li);
+
+            //댓글 삭제
+        const button_r = e =>{
+            console.log('삭제')
+            document.querySelector('ul').removeChild('.comment__item');
+          
+        }
+        document.querySelector('.btn.btn__write').addEventListener('click', button_h);
+
+    </script>
+</body>
+</html>

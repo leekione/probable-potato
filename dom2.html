@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:active { /* 클릭했을때 : 기본값은 빨강 */
+            color: inherit;
+        }
+        a:visited { /* 방문한 이력이 있을때 : 기본값은 보라 */
+            color: green;
+        }
+        a:link { /* 방문전 상태 : 기본값은 파랑 */
+            color: yellow;
+        }
+        a:hover { /* 마우스를 위로 가져갔을때 */
+            cursor: progress;
+            color: brown;
+        }
+        a:active, a:visited, a:link, a:hover {
+            color: inherit;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: yellowgreen;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">버튼추가</a>
+    <div id="container">
+        <!-- <button class="btn">클릭</button> -->
+    </div>
+
+    <script>
+        const $aTag = document.querySelector('a');
+        const addButton_h = function(evt){
+            evt.preventDefault(); //기본이벤트 취소
+            console.log('클릭~!'+evt.target);
+
+            //1) Element생성
+            const $button = document.createElement('button');// 속성x, 컨텐츠x
+            console.log($button);
+
+            //2) textNode생성
+            const $textNode = document.createTextNode('클릭');
+            console.log($textNode);
+
+            //3) Element의 자식으로 textNode를 추가
+            $button.appendChild($textNode);
+            console.log($button);
+
+            //4) #container의 자식으로 $button 추가
+            const $parent = document.getElementById('container');
+            $parent.appendChild($button);
+
+            //5) $button에 속성 추가하기
+            $button.classList.add('btn');
+
+            //6) $button에  click 이벤트 등록
+            $button.addEventListener('click', function(){
+                console.log('클릭!');    
+            });
+        }
+
+        $aTag.addEventListener('click', addButton_h);
+        
+    </script>
+</body>
+</html>

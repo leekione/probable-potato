@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragment</title>
+    <script src="create_element.js"></script>
+</head>
+<body>
+    <button>클릭</button>
+    <ul class="menu">
+        <!-- <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li> -->
+    </ul>
+
+    <script>
+        const addMenu_h = e=>{
+            console.log('클릭!');
+            //1) Fragment 생성
+            const $fragment = document.createDocumentFragment();
+
+            //2) li요소 생성후 $fragment의 자식요소로 추가
+            $fragment.appendChild(makeElements('li',null,'menu1'));
+            $fragment.appendChild(makeElements('li',null,'menu2'));
+            $fragment.appendChild(makeElements('li',null,'menu3'));
+
+            //3) $fragment를 ul의 자식요소로 추가
+            document.querySelector('ul')
+                    .appendChild($fragment);
+        }
+        document.querySelector('button').addEventListener('click', addMenu_h);
+    </script>
+
+</body>
+</html>

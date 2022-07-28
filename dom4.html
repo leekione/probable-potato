@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom4</title>
+    <script src="create_element.js"></script>
+</head>
+<body>
+    <button>클릭</button>
+    <div id="container">
+        <!-- <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </ul> -->
+    </div>
+    <script>
+        // const $button = document.querySelector('button');
+        // const addUl_h = function(evt){
+        //     const $btnUl = makeElements('ul');
+        //     document.getElementById('container').appendChild($btnUl);
+        //     const $Li1 = makeElements('li','','menu1');
+        //     const $Li2 = makeElements('li','','menu2');
+        //     const $Li3 = makeElements('li','','menu3');
+        //     document.querySelector('ul').appendChild($Li1);
+        //     document.querySelector('ul').appendChild($Li2);
+        //     document.querySelector('ul').appendChild($Li3);
+        // }
+
+        // $button.addEventListener('click', addUl_h);
+        const handler = function(e){
+            const $ul = makeElements('ul',null,
+                            makeElements('li',null,'menu1'),
+                            'test1',
+                            makeElements('li',null,'menu2'),
+                            makeElements('li',null,'menu3'),
+                            'text2'
+                        );
+        document.getElementById('container').appendChild($ul);
+        }
+        document.querySelector('button'). addEventListener('click',handler);
+    </script>
+
+</body>
+</html>

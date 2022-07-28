@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="create_element.js"></script>
+</head>
+<body>
+    <button>클릭</button>
+    <div id="container">
+        <!-- <ul class="menu menu__level1" id="menu">
+            <li class="menu__item">menu11
+                <ul class="menu menu__level2">
+                    <li class="menu__item">menu21</li>
+                    <li class="menu__item">menu22</li>
+                </ul>
+            </li>
+            <li class="menu__item">menu12
+                <ul class="menu menu__level2">
+                    <li class="menu__item">menu21</li>
+                    <li class="menu__item">menu22</li>
+                </ul>
+            </li>
+        </ul> -->
+    </div>
+    <script>
+        const addMenu_h = e=>{
+            console.log('클릭!');
+                const $ul = makeElements('ul',{class:'menu menu__level1', id:'menu'},
+                    makeElements('li',{class:'menu__item'},
+                    'menu11',
+                        makeElements('ul',{class:'menu menu__level2'},
+                            makeElements('li',{class:'menu__item'},'menu21'),
+                            makeElements('li',{class:'menu__item'},'menu22')
+                        ),
+                    ),
+                    makeElements('li',{class:'menu__item'},
+                    'menu12',
+                        makeElements('ul',{class:'menu menu__level2'},
+                            makeElements('li',{class:'menu__item'},'menu21'),
+                            makeElements('li',{class:'menu__item'},'menu22')
+                        ),
+                    )
+                );
+            document.getElementById('container').appendChild($ul);
+        };
+        document.querySelector('button').addEventListener('click', addMenu_h);
+    </script>
+</body>
+</html>
