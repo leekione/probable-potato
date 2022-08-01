@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* .main {
+    display: inline;
+} */
+.main {
+    background-color: #eee;
+    width: 60%;
+    
+    overflow-x: auto;
+    overflow-y: auto;
+    
+}
+.main > div {
+    font-size: 1.5em;
+    margin: 10px 0px 20px 0px;
+    text-align: center;
+    margin: 30px 0px 60px 0px;
+}
+.profile {
+    display: flex;
+    /* background-color: #eee; */
+    width: 80%;
+   
+}
+
+.profile .user__profile {
+    margin: 0px 30px;
+    width: 100%;
+    text-align: center;
+}
+.profile .user__profile .profile__image {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.profile .user__profile .profile__name {
+    /* text-align: center; */
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.main form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+ 
+
+}
+.main form label {
+    display: inline-block;
+    width: 100px;
+    
+    margin-bottom: 10px;
+}
+
+
+
+
