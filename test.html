@@ -55,15 +55,42 @@
         .menu .menu-study {
             display: flex;
             width: 80%;
-            padding: 10px;
-            box-sizing: border-box;
+
             justify-content:space-around ;
             background-color: black;
             color: white;
+            
+        }
+        .menu .menu-study .item {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+          
+        }
+        .menu .menu-study .item:hover  {
+            transition: all 1s;
+            background-color:  red;
+        }
+        .menu .menu-study .item .item__menu {
+            display: none;
+            /* position: relative; */
+
+        }
+        .menu .menu-study .item:hover .item__menu{
+            display: block;
+            
+        }
+        .menu .menu-study .item:hover .item__menu .item__item {
+            width: 100%;
+        }
+        .menu .menu-study .item:hover .item__menu .item__item:hover {
+            transition: all 1s;
+            background-color: blue;
         }
         .main {
             display: flex;
             justify-content: center;
+
         }
         .main .content {
              display: flex;
@@ -74,7 +101,7 @@
             background-color: darkturquoise;
         }
         .main .content article {
-            flex: 4;
+            flex: 5;
             background-color: lightskyblue;
             display: flex;
             flex-direction: column;
@@ -135,7 +162,13 @@
 
         <div class="menu">
             <ul class="menu-study">
-                <li class="item">웹표준</li>
+                <li class="item">웹표준
+                    <ul class="item__menu">
+                        <li class="item__item">item1</li>
+                        <li class="item__item">item2</li>
+                        <li class="item__item">item3</li>
+                    </ul>
+                </li>
                 <li class="item">자바</li>
                 <li class="item">안드로이드</li>
                 <li class="item">데이터베이스</li>
